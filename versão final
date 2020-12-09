@@ -210,7 +210,7 @@ function draw() {
     
     textSize(17);//tamanho da letra
     fill (10);
-    text("Clique no PRISMA HEXAGONAL OBLÍQUO", 50, 300);
+    text("Clique no PRISMA PENTAGONAL OBLÍQUO", 50, 300);
     if(mouseX > 30 && mouseX < 30 + 145 && mouseY > 332 && mouseY < 332 + 45 && mouseIsPressed){
       tela = 1;   
     }
