@@ -1,0 +1,755 @@
+var tela = 2;
+var img = []
+var contador=0;
+var tempo = 0;
+
+function preload() {
+  img0 = loadImage('fundodojogo.png');
+  img1 = loadImage('seta a direita.png');
+  img2 = loadImage('seta a esquerda.png');
+  img3 = loadImage('seta a esquerda.png');
+  img4 = loadImage('prisma quadrangular reto.png');
+  img5 = loadImage('prisma triangular reto.png');
+  img6 = loadImage('prisma hexagonal reto.png');
+  img7 = loadImage('prisma pentagonal oblicuo.png');
+  img8 = loadImage('prisma quadrangular oblicuo.png');
+  img9 = loadImage('piramedetriangularreta.png');
+  img10 = loadImage('piramedequadrangularreta.png');
+  img11 = loadImage('piramedepentagonalreta.png');
+  img12 = loadImage('piramedehexagonalreta.png');
+  img13 = loadImage('priramedeobliqua.jpg');
+  img14 = loadImage('correto.png');
+  img15 = loadImage('errado.png');
+  img16 = loadImage('liandra.png');
+  img17 = loadImage('lucia.png');
+  img[0] = loadImage('imagem1.png');
+  img[1] = loadImage('imagem2.png');
+  img[2] = loadImage('imagem3.png');
+  img[3] = loadImage('imagem4.png');
+  img[4] = loadImage('imagem5.png');
+  img[5] = loadImage('imagem6.png');
+  img[6] = loadImage('imagem7.png');
+  img[7] = loadImage('imagem8.png');
+  img[8] = loadImage('imagem9.png');
+}
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  tempo++;
+  background(img0);
+  image(img0, 400, 400);
+  //menu
+  if (tela == 1) {
+    textSize(25);//tamanho da letra
+    
+    fill ('fundodojogo.png');//cor de fundo
+    rect (230, 15, 155, 55, 15);//tamanho do botão
+      
+      
+    fill(10);//cor da letra
+    text("Orientações", 240,50);//texto
+  
+    textSize(25);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (230, 80, 155, 55, 15);//tamanho do botão 
+    fill(10);//cor da letra
+    text("Créditos", 259,115);//texto
+    
+    textSize(35);
+    text("Escolha uma opção", 45, 200);
+    
+    textSize(25);
+    fill('fundodojogo.png');//cor do fundo
+    rect(15, 260, 180, 55, 15);//tamanho do botão
+    fill(10);//cor da letra
+    text("Prismas", 60, 295);
+    
+    
+    textSize(25);
+    fill('fundodojogo.png');//cor do fundo
+    rect(215, 260, 170, 55, 15);//tamanho do botão
+    fill(10);//cor da letra
+    text("Pirâmides", 245, 295);
+    
+    
+   if(mouseX > 230 && mouseX < 230 + 155 && mouseY > 15 && mouseY < 15 + 55 && mouseIsPressed){
+      tela = 2;   
+    }
+   else if(mouseX > 15 && mouseX < 15 + 180 && mouseY > 260 && mouseY < 260 + 55 && mouseIsPressed){
+      tela = 3;   
+    }
+   else if(mouseX > 215 && mouseX < 215 + 170 && mouseY > 260 && mouseY < 260 + 55 && mouseIsPressed){
+      tela = 8;
+    }
+   else if(mouseX > 230 && mouseX < 230 + 155 && mouseY > 80 && mouseY < 80 + 55 && mouseIsPressed){
+      tela = 9;
+    }
+  }
+  //Orientações do jogo
+  else if(tela == 2){
+    textSize(30);//tamanho da letra
+    text("Orientações:", 115,90);
+    textSize(20);//tamanho da letra
+    text("Você deve ler o nome e clicar no seu", 35, 120);
+    text("correspondente", 125, 145);
+    textSize(16);//tamanho da letra
+    text("O objetivo desse jogo é associar prismas e pirâmides ", 12, 320);
+    text("a suas planificações e analisar, nomear e comparar ", 18, 340);
+    text("seus atributos, estabelecendo relações entre as ", 30, 360);
+    text("representações planas e espaciais.", 80, 380); 
+    fill ('fundodojogo.png');//cor de fundo
+    rect (15, 9, 195, 50, 15);//tamanho do botão
+    textSize(20);//tamanho da letra
+    fill (10);
+    text("Voltar para o menu", 25, 40);
+    
+    if(mouseX > 15 && mouseX < 15 + 195 && mouseY > 9 && mouseY < 9 + 50 && mouseIsPressed){
+      tela = 1;  
+    }
+    
+    image(img[contador%8], 120,150,150,150);
+  if(tempo>15) {
+     contador++;
+     tempo=0;
+  }
+  }
+  //Parte do Prisma nivel 1
+  else if (tela == 3) {
+    textSize(25);//tamanho da letra
+    fill(10);//cor da letra
+    text("Nível: " + 1, 20,40);//texto
+    textSize(15);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (30, 332, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Voltar para o início", 40, 360);
+    textSize(15);//tamanho da letra
+  
+    image(img4, 25, 150, 70, 110);//imagem do prisma 1
+    image(img5, 95, 60, 70, 110);//imagem do prisma 2;
+    image(img6, 165, 150, 70, 110);//imagem do prisma 3;
+    image(img7, 235, 60, 70, 110);//imagem do prisma 4;
+    image(img8, 305, 150, 70, 110);//imagem do prisma;
+    
+    textSize(17);//tamanho da letra
+    fill (10);
+    text("Clique no PRISMA RETANGULAR RETO", 50, 300);
+    if(mouseX > 30 && mouseX < 30 + 145 && mouseY > 332 && mouseY < 332 + 45 && mouseIsPressed){
+      tela = 1;   
+    }
+    if(mouseX > 25 && mouseX < 25 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.01;   
+    }
+    if(mouseX > 95 && mouseX < 95 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+    if(mouseX > 165 && mouseX < 165 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+    if(mouseX > 235 && mouseX < 235 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+    if(mouseX > 305 && mouseX < 305 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+  }
+  //correto
+  else if (tela == 3.01){
+    fill ('fundodojogo.png');//cor de fundo
+    image(img14, 90, 40, 220, 230);//imagem certo
+    textSize(50);//tamanho da letra
+    fill('#00FF33');//cor da letra
+    text("Correto", 120,330);//texto
+    textSize(20);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (250, 350, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Continuar", 280, 378); 
+     
+    if(mouseX > 250 && mouseX < 250 + 145 && mouseY > 350 && mouseY < 350 + 45 && mouseIsPressed){
+      tela = 4;    
+    }
+    
+  }
+  //errado
+   else if (tela == 3.02) {
+    fill ('fundodojogo.png');//cor de fundo
+    image(img15, 90, 40, 220, 230);//imagem certo
+    textSize(50);//tamanho da letra
+    fill('#FF0000');//cor da letra
+    text("Errado", 130,330);//texto
+    textSize(20);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (200, 350, 200, 45, 15);//tamanho do botão
+    fill (10);
+    text("Tentar novamente", 219, 378); 
+     
+    if(mouseX > 200 && mouseX < 200 + 200 && mouseY > 350 && mouseY < 350 + 45 && mouseIsPressed){
+      tela = 3;
+    }
+   }  
+  //nivel 2
+  else if (tela == 4) {
+    textSize(25);//tamanho da letra
+    fill(10);//cor da letra
+    text("Nível: " + 2, 20,40);//texto
+    textSize(15);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (30, 332, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Voltar para o início", 40, 360);
+    textSize(15);//tamanho da letra
+  
+    image(img4, 25, 150, 70, 110);//imagem do prisma 1
+    image(img5, 95, 60, 70, 110);//imagem do prisma 2;
+    image(img6, 165, 150, 70, 110);//imagem do prisma 3;
+    image(img7, 235, 60, 70, 110);//imagem do prisma 4;
+    image(img8, 305, 150, 70, 110);//imagem do prisma;
+    
+    textSize(17);//tamanho da letra
+    fill (10);
+    text("Clique no PRISMA HEXAGONAL OBLÍQUO", 50, 300);
+    if(mouseX > 30 && mouseX < 30 + 145 && mouseY > 332 && mouseY < 332 + 45 && mouseIsPressed){
+      tela = 1;   
+    }
+    if(mouseX > 25 && mouseX < 25 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+    if(mouseX > 95 && mouseX < 95 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+    if(mouseX > 165 && mouseX < 165 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+    if(mouseX > 235 && mouseX < 235 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.001;   
+    }
+    if(mouseX > 305 && mouseX < 305 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+  }
+  //correto
+  else if (tela == 3.001){
+    fill ('fundodojogo.png');//cor de fundo
+    image(img14, 90, 40, 220, 230);//imagem certo
+    textSize(50);//tamanho da letra
+    fill('#00FF33');//cor da letra
+    text("Correto", 120,330);//texto
+    textSize(20);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (250, 350, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Continuar", 280, 378); 
+     
+    if(mouseX > 250 && mouseX < 250 + 145 && mouseY > 350 && mouseY < 350 + 45 && mouseIsPressed){
+      tela = 5;    
+    }
+    
+  }
+  //nivel 3
+  else if (tela == 5) {
+    textSize(25);//tamanho da letra
+    fill(10);//cor da letra
+    text("Nível: " + 3, 20,40);//texto
+    textSize(15);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (30, 332, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Voltar para o início", 40, 360);
+    textSize(15);//tamanho da letra
+  
+    image(img4, 25, 150, 70, 110);//imagem do prisma 1
+    image(img5, 95, 60, 70, 110);//imagem do prisma 2;
+    image(img6, 165, 150, 70, 110);//imagem do prisma 3;
+    image(img7, 235, 60, 70, 110);//imagem do prisma 4;
+    image(img8, 305, 150, 70, 110);//imagem do prisma 5
+    
+    textSize(17);//tamanho da letra
+    fill (10);
+    text("Clique no PRISMA TRIANGULAR RETO", 50, 300);
+    if(mouseX > 30 && mouseX < 30 + 145 && mouseY > 332 && mouseY < 332 + 45 && mouseIsPressed){
+      tela = 1;   
+    }
+    if(mouseX > 25 && mouseX < 25 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+    if(mouseX > 95 && mouseX < 95 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.0001;   
+    }
+    if(mouseX > 165 && mouseX < 165 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+    if(mouseX > 235 && mouseX < 235 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+    if(mouseX > 305 && mouseX < 305 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+  }
+  //correto
+  else if (tela == 3.0001){
+    fill ('fundodojogo.png');//cor de fundo
+    image(img14, 90, 40, 220, 230);//imagem certo
+    textSize(50);//tamanho da letra
+    fill('#00FF33');//cor da letra
+    text("Correto", 120,330);//texto
+    textSize(20);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (250, 350, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Continuar", 280, 378); 
+     
+    if(mouseX > 250 && mouseX < 250 + 145 && mouseY > 350 && mouseY < 350 + 45 && mouseIsPressed){
+      tela = 6;    
+    }
+    
+  }
+  //nivel 4
+  else if (tela == 6) {
+    textSize(25);//tamanho da letra
+    fill(10);//cor da letra
+    text("Nível: " + 4, 20,40);//texto
+    textSize(15);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (30, 332, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Voltar para o início", 40, 360);
+    textSize(15);//tamanho da letra
+  
+    image(img4, 25, 150, 70, 110);//imagem do prisma 1
+    image(img5, 95, 60, 70, 110);//imagem do prisma 2;
+    image(img6, 165, 150, 70, 110);//imagem do prisma 3;
+    image(img7, 235, 60, 70, 110);//imagem do prisma 4;
+    image(img8, 305, 150, 70, 110);//imagem do prisma;
+    
+    textSize(15);//tamanho da letra
+    fill (10);
+    text("Clique no PRISMA QUADRANGULAR OBLÍQUO", 50, 300);
+    if(mouseX > 30 && mouseX < 30 + 145 && mouseY > 332 && mouseY < 332 + 45 && mouseIsPressed){
+      tela = 1;   
+    }
+    if(mouseX > 25 && mouseX < 25 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+    if(mouseX > 95 && mouseX < 95 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+    if(mouseX > 165 && mouseX < 165 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+    if(mouseX > 235 && mouseX < 235 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+    if(mouseX > 305 && mouseX < 305 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.00001;   
+    }
+  }
+  //correto
+  else if (tela == 3.00001){
+    fill ('fundodojogo.png');//cor de fundo
+    image(img14, 90, 40, 220, 230);//imagem certo
+    textSize(50);//tamanho da letra
+    fill('#00FF33');//cor da letra
+    text("Correto", 120,330);//texto
+    textSize(20);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (250, 350, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Continuar", 280, 378); 
+     
+    if(mouseX > 250 && mouseX < 250 + 145 && mouseY > 350 && mouseY < 350 + 45 && mouseIsPressed){
+      tela = 7;    
+    }
+    
+  }
+  //nivel 5
+  else if (tela == 7) {
+    textSize(25);//tamanho da letra
+    fill(10);//cor da letra
+    text("Nível: " + 5, 20,40);//texto
+    textSize(15);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (30, 332, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Voltar para o início", 40, 360);
+    textSize(15);//tamanho da letra
+  
+    image(img4, 25, 150, 70, 110);//imagem do prisma 1
+    image(img5, 95, 60, 70, 110);//imagem do prisma 2;
+    image(img6, 165, 150, 70, 110);//imagem do prisma 3;
+    image(img7, 235, 60, 70, 110);//imagem do prisma 4;
+    image(img8, 305, 150, 70, 110);//imagem do prisma;
+    
+    textSize(17);//tamanho da letra
+    fill (10);
+    text("Clique no PRISMA HEXAGONAL RETO", 50, 300);
+    if(mouseX > 30 && mouseX < 30 + 145 && mouseY > 332 && mouseY < 332 + 45 && mouseIsPressed){
+      tela = 1;   
+    }
+    if(mouseX > 25 && mouseX < 25 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+    if(mouseX > 95 && mouseX < 95 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+    if(mouseX > 165 && mouseX < 165 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.000001;   
+    }
+    if(mouseX > 235 && mouseX < 235 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+    if(mouseX > 305 && mouseX < 305 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.02;   
+    }
+  }
+  //correto
+  else if (tela == 3.000001){
+    fill ('fundodojogo.png');//cor de fundo
+    image(img14, 120, 30, 160, 170);//imagem certo
+    textSize(30);//tamanho da letra
+    fill('#00FF33');//cor da letra
+    text("Correto", 150,250);//texto
+    textSize(20);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fund 
+    textSize(16);//tamanho da letra
+    fill (10);
+    text("Parabéns, você concluiu os níveis sobre Prismas.", 25, 280); 
+    text("Que tal concluir também os niveis sobre Pirâmides?", 15, 310);
+    textSize(15);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (30, 332, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Voltar para o início", 40, 360);
+     if(mouseX > 30 && mouseX < 30 + 145 && mouseY > 332 && mouseY < 332 + 45 && mouseIsPressed){
+      tela = 1;   
+    }
+  }
+  //Parte da Pirâmide/nivel 1
+  else if (tela == 8) {
+    textSize(25);//tamanho da letra
+    fill(10);//cor da letra
+    text("Nível: " + 1, 20,40);//texto
+    textSize(15);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (30, 332, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Voltar para o início", 40, 360);
+   
+    image(img9, 25, 60, 70, 110);//imagem da priramede 1;
+    image(img10, 95, 150, 70, 110);//imagem do piramede 2;
+    image(img11, 165, 60, 70, 110);//imagem do piramede 3;
+    image(img12, 235, 150, 70, 110);//imagem do piramede 4;
+    image(img13, 305, 60, 70, 110);//imagem do piramede 5;
+   
+    textSize(17);//tamanho da letra
+    fill (10);
+    text("Clique na PIRÂMIDE PENTAGONAL RETA", 40, 300);
+     
+    if(mouseX > 30 && mouseX < 30 + 145 && mouseY > 332 && mouseY < 332 + 45 && mouseIsPressed){
+      tela = 1;   
+    }
+     if(mouseX > 25 && mouseX < 25 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+    if(mouseX > 95 && mouseX < 95 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+    if(mouseX > 165 && mouseX < 165 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 10;   
+    }
+    if(mouseX > 235 && mouseX < 235 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+    if(mouseX > 305 && mouseX < 305 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+  }
+  //correto
+  else if (tela == 10){
+    fill ('fundodojogo.png');//cor de fundo
+    image(img14, 90, 40, 220, 230);//imagem certo
+    textSize(50);//tamanho da letra
+    fill('#00FF33');//cor da letra
+    text("Correto", 120,330);//texto
+    textSize(20);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (250, 350, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Continuar", 280, 378); 
+     
+    if(mouseX > 250 && mouseX < 250 + 145 && mouseY > 350 && mouseY < 350 + 45 && mouseIsPressed){
+      tela = 8.1;    
+    }
+    
+  }
+  //errado
+   else if (tela == 3.002) {
+    fill ('fundodojogo.png');//cor de fundo
+    image(img15, 90, 40, 220, 230);//imagem certo
+    textSize(50);//tamanho da letra
+    fill('#FF0000');//cor da letra
+    text("Errado", 130,330);//texto
+    textSize(20);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (200, 350, 200, 45, 15);//tamanho do botão
+    fill (10);
+    text("Tentar novamente", 219, 378); 
+     
+    if(mouseX > 200 && mouseX < 200 + 200 && mouseY > 350 && mouseY < 350 + 45 && mouseIsPressed){
+      tela = 8;
+    }
+   } 
+  //nivel 2
+   else if (tela == 8.1) {
+    textSize(25);//tamanho da letra
+    fill(10);//cor da letra
+    text("Nível: " + 2, 20,40);//texto
+    textSize(15);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (30, 332, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Voltar para o início", 40, 360);
+   
+    image(img9, 25, 60, 70, 110);//imagem da priramede 1;
+    image(img10, 95, 150, 70, 110);//imagem do piramede 2;
+    image(img11, 165, 60, 70, 110);//imagem do piramede 3;
+    image(img12, 235, 150, 70, 110);//imagem do piramede 4;
+    image(img13, 305, 60, 70, 110);//imagem do piramede 5;
+   
+    textSize(17);//tamanho da letra
+    fill (10);
+    text("Clique na PIRÂMIDE HAXAGONAL RETA", 40, 300);
+     
+    if(mouseX > 30 && mouseX < 30 + 145 && mouseY > 332 && mouseY < 332 + 45 && mouseIsPressed){
+      tela = 1;   
+    }
+     if(mouseX > 25 && mouseX < 25 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+    if(mouseX > 95 && mouseX < 95 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+    if(mouseX > 165 && mouseX < 165 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+    if(mouseX > 235 && mouseX < 235 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 10.1;   
+    }
+    if(mouseX > 305 && mouseX < 305 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+  }
+  //correto
+  else if (tela == 10.1){
+    fill ('fundodojogo.png');//cor de fundo
+    image(img14, 90, 40, 220, 230);//imagem certo
+    textSize(50);//tamanho da letra
+    fill('#00FF33');//cor da letra
+    text("Correto", 120,330);//texto
+    textSize(20);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (250, 350, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Continuar", 280, 378); 
+     
+    if(mouseX > 250 && mouseX < 250 + 145 && mouseY > 350 && mouseY < 350 + 45 && mouseIsPressed){
+      tela = 8.2;    
+    }
+  }
+  //nivel 3
+  else if (tela == 8.2) {
+    textSize(25);//tamanho da letra
+    fill(10);//cor da letra
+    text("Nível: " + 3, 20,40);//texto
+    textSize(15);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (30, 332, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Voltar para o início", 40, 360);
+   
+    image(img9, 25, 60, 70, 110);//imagem da priramede 1;
+    image(img10, 95, 150, 70, 110);//imagem do piramede 2;
+    image(img11, 165, 60, 70, 110);//imagem do piramede 3;
+    image(img12, 235, 150, 70, 110);//imagem do piramede 4;
+    image(img13, 305, 60, 70, 110);//imagem do piramede 5;
+   
+    textSize(17);//tamanho da letra
+    fill (10);
+    text("Clique na PIRÂMIDE TRIANGULAR RETA", 40, 300);
+     
+    if(mouseX > 30 && mouseX < 30 + 145 && mouseY > 332 && mouseY < 332 + 45 && mouseIsPressed){
+      tela = 1;   
+    }
+     if(mouseX > 25 && mouseX < 25 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 10.2;   
+    }
+    if(mouseX > 95 && mouseX < 95 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+    if(mouseX > 165 && mouseX < 165 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+    if(mouseX > 235 && mouseX < 235 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+    if(mouseX > 305 && mouseX < 305 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+  }
+   //correto
+  else if (tela == 10.2){
+    fill ('fundodojogo.png');//cor de fundo
+    image(img14, 90, 40, 220, 230);//imagem certo
+    textSize(50);//tamanho da letra
+    fill('#00FF33');//cor da letra
+    text("Correto", 120,330);//texto
+    textSize(20);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (250, 350, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Continuar", 280, 378); 
+     
+    if(mouseX > 250 && mouseX < 250 + 145 && mouseY > 350 && mouseY < 350 + 45 && mouseIsPressed){
+      tela = 8.3;    
+    }
+  }
+  //nivel 4
+   else if (tela == 8.3) {
+    textSize(25);//tamanho da letra
+    fill(10);//cor da letra
+    text("Nível: " + 4, 20,40);//texto
+    textSize(15);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (30, 332, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Voltar para o início", 40, 360);
+   
+    image(img9, 25, 60, 70, 110);//imagem da priramede 1;
+    image(img10, 95, 150, 70, 110);//imagem do piramede 2;
+    image(img11, 165, 60, 70, 110);//imagem do piramede 3;
+    image(img12, 235, 150, 70, 110);//imagem do piramede 4;
+    image(img13, 305, 60, 70, 110);//imagem do piramede 5;
+   
+    textSize(16);//tamanho da letra
+    fill (10);
+    text("Clique na PIRÂMIDE PENTAGONAL OBLÍQUA", 30, 300);
+     
+    if(mouseX > 30 && mouseX < 30 + 145 && mouseY > 332 && mouseY < 332 + 45 && mouseIsPressed){
+      tela = 1;   
+    }
+     if(mouseX > 25 && mouseX < 25 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+    if(mouseX > 95 && mouseX < 95 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+    if(mouseX > 165 && mouseX < 165 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+    if(mouseX > 235 && mouseX < 235 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+    if(mouseX > 305 && mouseX < 305 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 10.3;   
+    }
+  }
+  //correto
+  else if (tela == 10.3){
+    fill ('fundodojogo.png');//cor de fundo
+    image(img14, 90, 40, 220, 230);//imagem certo
+    textSize(50);//tamanho da letra
+    fill('#00FF33');//cor da letra
+    text("Correto", 120,330);//texto
+    textSize(20);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (250, 350, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Continuar", 280, 378); 
+     
+    if(mouseX > 250 && mouseX < 250 + 145 && mouseY > 350 && mouseY < 350 + 45 && mouseIsPressed){
+      tela = 8.4;    
+    }
+    
+  }
+  //nivel 5
+   else if (tela == 8.4) {
+    textSize(25);//tamanho da letra
+    fill(10);//cor da letra
+    text("Nível: " + 5, 20,40);//texto
+    textSize(15);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (30, 332, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Voltar para o início", 40, 360);
+   
+    image(img9, 25, 60, 70, 110);//imagem da priramede 1;
+    image(img10, 95, 150, 70, 110);//imagem do piramede 2;
+    image(img11, 165, 60, 70, 110);//imagem do piramede 3;
+    image(img12, 235, 150, 70, 110);//imagem do piramede 4;
+    image(img13, 305, 60, 70, 110);//imagem do piramede 5;
+   
+    textSize(16);//tamanho da letra
+    fill (10);
+    text("Clique na PIRÂMIDE QUADRANGULAR RETA", 30, 300);
+     
+    if(mouseX > 30 && mouseX < 30 + 145 && mouseY > 332 && mouseY < 332 + 45 && mouseIsPressed){
+      tela = 1;   
+    }
+     if(mouseX > 25 && mouseX < 25 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+    if(mouseX > 95 && mouseX < 95 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 10.4;   
+    }
+    if(mouseX > 165 && mouseX < 165 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+    if(mouseX > 235 && mouseX < 235 + 70 && mouseY > 150 && mouseY < 150 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+    if(mouseX > 305 && mouseX < 305 + 70 && mouseY > 60 && mouseY < 60 + 110 && mouseIsPressed){
+      tela = 3.002;   
+    }
+  }
+  //correto
+  else if (tela == 10.4){
+    fill ('fundodojogo.png');//cor de fundo
+    image(img14, 120, 30, 160, 170);//imagem certo
+    textSize(30);//tamanho da letra
+    fill('#00FF33');//cor da letra
+    text("Correto", 150,250);//texto
+    textSize(20);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fund 
+    textSize(16);//tamanho da letra
+    fill (10);
+    text("Parabéns, você concluiu os níveis sobre Pirâmides.", 15, 280); 
+    text("Que tal concluir também os níveis sobre Prismas?", 25, 310);
+    textSize(15);//tamanho da letra
+    fill ('fundodojogo.png');//cor de fundo
+    rect (30, 332, 145, 45, 15);//tamanho do botão
+    fill (10);
+    text("Voltar para o início", 40, 360);
+     if(mouseX > 30 && mouseX < 30 + 145 && mouseY > 332 && mouseY < 332 + 45 && mouseIsPressed){
+      tela = 1;   
+    }
+  }
+  //tela dos créditos
+  else if (tela == 9){
+    image(img16, 40, 30, 120, 150);
+    image(img17, 40, 210, 120, 120);
+    textSize(25);//tamanho da letra
+    text("Liandra Kelly",210,80);//texto
+    text("Programadora",205,130);//texto
+    text("Lúcia Lopes",210,250);//texto
+    text("Educadora",215,300);//texto
+    fill ('fundodojogo.png');//cor de fundo
+    rect (80, 350, 250, 50, 15);//tamanho do botão
+    fill (10);
+    text("Voltar para o menu", 100, 382);
+     if(mouseX > 80 && mouseX < 80 + 250 && mouseY > 350 && mouseY < 350 + 50 && mouseIsPressed){
+      tela = 1;  
+    }  
+  }
+}
