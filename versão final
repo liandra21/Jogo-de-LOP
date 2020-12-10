@@ -634,7 +634,7 @@ function draw() {
    
     textSize(16);//tamanho da letra
     fill (10);
-    text("Clique na PIRÂMIDE PENTAGONAL OBLÍQUA", 30, 300);
+    text("Clique na PIRÂMIDE HEXAGONAL OBLÍQUA", 30, 300);
      
     if(mouseX > 30 && mouseX < 30 + 145 && mouseY > 332 && mouseY < 332 + 45 && mouseIsPressed){
       tela = 1;   
